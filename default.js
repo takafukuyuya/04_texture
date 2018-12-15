@@ -128,9 +128,9 @@
             
             // ポリゴンの描画
             if (texture !== null) {
-                gl.bindTexture(gl.TEXTURE_2D, texture);// テクスチャを有効にする
+                gl.uniform1i(uniLocation, 0);// シェーダの'sampler'に0番を割り当てる
                 gl.activeTexture(gl.TEXTURE0);// 0番のテクスチャを有効にする
-                gl.uniform1i(uniLocation, 0);// シェーダの'texture'に0番を割り当てる
+                gl.bindTexture(gl.TEXTURE_2D, texture);// テクスチャを割り当てる
                 gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
                 gl.drawArrays(gl.TRIANGLES, 0, 6);// 2個の三角形を表示
             }
