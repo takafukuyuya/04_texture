@@ -87,7 +87,6 @@
           -1.0, +1.0,  0.0, 0.0,
           -1.0, -1.0,  0.0, 1.0,
         ]);
-        gl.enable(gl.CULL_FACE);
         
         var byteLength = 4 * 4; // 頂点は4バイト×4個
         const vertexBuffer = gl.createBuffer();
