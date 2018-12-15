@@ -127,7 +127,7 @@
             gl.clear(gl.COLOR_BUFFER_BIT);
             
             // ポリゴンの描画
-            if (value !== null) {
+            if (texture !== null) {
                 gl.bindTexture(gl.TEXTURE_2D, texture);// テクスチャを有効にする
                 gl.activeTexture(gl.TEXTURE0);// 0番のテクスチャを有効にする
                 gl.uniform1i(uniLocation, 0);// シェーダの'texture'に0番を割り当てる
@@ -141,20 +141,19 @@
             window.requestAnimationFrame(update);
         }
         
-    }, false);
+        function load_texture(source){
+            var img = new Image();// 画像オブジェクトの生成
 
-    function load_texture(source){
-        var img = new Image();// 画像オブジェクトの生成
+            img.onload = function(){// 画像が読み込まれた際の処理
+                var tex = gl.createTexture();// テクスチャオブジェクトの生成
+                gl.bindTexture(gl.TEXTURE_2D, tex);// テクスチャをバインド
+                // テクスチャへ画像を写す
+                gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
+                gl.bindTexture(gl.TEXTURE_2D, null);// バインドを外す
+                texture = tex; // 生成したテクスチャをグローバル変数に代入
+            };
+            img.src = source;// 画像ファイルを指定して読み込む
+        }
         
-        img.onload = function(){// 画像が読み込まれた際の処理
-            var tex = gl.createTexture();// テクスチャオブジェクトの生成
-            gl.bindTexture(gl.TEXTURE_2D, tex);// テクスチャをバインド
-            // テクスチャへ画像を写す
-            gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
-            gl.bindTexture(gl.TEXTURE_2D, null);// バインドを外す
-            texture = tex; // 生成したテクスチャをグローバル変数に代入
-        };
-        img.src = source;// 画像ファイルを指定して読み込む
-    }
-
+    }, false);
 })();
