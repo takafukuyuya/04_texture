@@ -50,8 +50,8 @@
             'out vec4 outColor;',
 
             'void main(void) {',
-                'vec4 texColor = texture(sampler, vTexCoord);',
-                'outColor = texColor;',
+                '//vec4 texColor = texture(sampler, vTexCoord);',
+                'outColor = 1;//outColor = texColor;',
             '}'
         ].join('\n');
 
