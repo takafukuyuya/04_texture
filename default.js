@@ -51,7 +51,7 @@
 
             'void main(void) {',
                 'vec4 texColor = texture(sampler, vTexCoord);',
-                'outColor = vec4(1,1,1,2)-texColor;',
+                'outColor = texColor;',
             '}'
         ].join('\n');
 
