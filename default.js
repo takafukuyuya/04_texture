@@ -148,7 +148,7 @@
                 var tex = gl.createTexture();// テクスチャオブジェクトの生成
                 gl.bindTexture(gl.TEXTURE_2D, tex);// テクスチャをバインド
                 // テクスチャへ画像を写す
-                gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 0, gl.UNSIGNED_BYTE, img);
+                gl.texImage2D(gl.TEXTURE_2D, 0, 0, 0, gl.UNSIGNED_BYTE, img);
                 gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
                 gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
                 gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
