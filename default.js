@@ -79,13 +79,13 @@
         // モデルの構築
         var vertex_data = new Float32Array([
          // x     y     u    v
-          +1.0, +1.0,  0.0, 1.0,
-          -1.0, +1.0,  1.0, 1.0,
-          +1.0, -1.0,  0.0, 0.0,
+          +1.0, +1.0,  1.0, 0.0,
+          -1.0, +1.0,  0.0, 0.0,
+          +1.0, -1.0,  1.0, 1.0,
 
-          +1.0, -1.0,  0.0, 0.0,
-          -1.0, +1.0,  1.0, 1.0,
-          -1.0, -1.0,  1.0, 0.0,
+          +1.0, -1.0,  1.0, 1.0,
+          -1.0, +1.0,  0.0, 0.0,
+          -1.0, -1.0,  0.0, 1.0,
         ]);
         
         var byteLength = 4 * 4; // 頂点は4バイト×4個
@@ -151,8 +151,8 @@
                 gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
                 gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
                 gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-                gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
-                gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT);
+                gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.MIRRORED_REPEAT);
+                gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.MIRRORED_REPEAT);
                 gl.bindTexture(gl.TEXTURE_2D, null);// バインドを外す
                 texture = tex; // 生成したテクスチャをグローバル変数に代入
             };
