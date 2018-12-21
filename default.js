@@ -11,8 +11,8 @@
         
         // canvas の初期化
         canvas = document.getElementById('canvas');
-        canvas.width = 1028;
-        canvas.height = 1028;
+        canvas.width = 512;
+        canvas.height = 512;
 
         // WeebGLの初期化(WebGL 2.0)
         gl = canvas.getContext('webgl2');
