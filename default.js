@@ -11,8 +11,8 @@
         
         // canvas の初期化
         canvas = document.getElementById('canvas');
-        canvas.width = 512;
-        canvas.height = 512;
+        canvas.width = 1028;
+        canvas.height = 1028;
 
         // WeebGLの初期化(WebGL 2.0)
         gl = canvas.getContext('webgl2');
@@ -132,7 +132,7 @@
                 gl.activeTexture(gl.TEXTURE0);// 0番のテクスチャを有効にする
                 gl.bindTexture(gl.TEXTURE_2D, texture);// テクスチャを割り当てる
                 gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
-                gl.drawArrays(gl.TRIANGLES, 0, 3);// 2個の三角形を表示
+                gl.drawArrays(gl.TRIANGLES, 0, 6);// 2個の三角形を表示
             }
             
             gl.flush();// 画面更新
